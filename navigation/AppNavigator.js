@@ -11,9 +11,7 @@ import { useSelector } from "react-redux";
 
 const AppNavigator = () => {
   const Stack = createStackNavigator();
-  const selectedCurrency = useSelector(
-    (state) => state.currency.selectedCurrency
-  );
+  const selectedCurrency = useSelector((state) => state.payment.selectedCurrency);
 
   return (
     <NavigationContainer>
