@@ -11,7 +11,9 @@ import { useSelector } from "react-redux";
 
 const AppNavigator = () => {
   const Stack = createStackNavigator();
-  const selectedCurrency = useSelector((state) => state.payment.selectedCurrency);
+  const selectedCurrency = useSelector(
+    (state) => state.payment.selectedCurrency
+  );
 
   return (
     <NavigationContainer>
@@ -48,7 +50,11 @@ const AppNavigator = () => {
               </TouchableOpacity>
             ),
             headerTitle: () => (
-              <Text style={{ fontSize: 18 }}>{"Seleccionar Divisa"}</Text>
+              <Text
+                style={{ fontSize: 18, color: "#002859", fontWeight: "700" }}
+              >
+                {"Crear Pago"}
+              </Text>
             ),
           })}
         />
@@ -56,7 +62,7 @@ const AppNavigator = () => {
         <Stack.Screen
           name="SharePaymentScreen"
           component={SharePaymentScreen}
-          options={{ title: "Compartir Pago" }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="QRCodeScreen"
@@ -71,7 +77,14 @@ const AppNavigator = () => {
         <Stack.Screen
           name="DivisaSelection"
           component={DivisaSelection}
-          options={{ title: "Seleccionar Divisa" }}
+          options={{
+            title: "Seleccionar Divisa",
+            headerTitleStyle: {
+              fontSize: 18,
+              color: "#002859",
+              fontWeight: "700",
+            },
+          }}
         />
       </Stack.Navigator>
     </NavigationContainer>

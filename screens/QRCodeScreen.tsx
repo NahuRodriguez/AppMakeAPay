@@ -5,19 +5,19 @@ import { WebSocket } from 'ws';
 
 const QRCodeScreen = () => {
   const [paymentStatus, setPaymentStatus] = useState('pending');
-  const socket = new WebSocket('wss://payments.pre-bnvo.com/ws/merchant/<>');
+  // const socket = new WebSocket('wss://payments.pre-bnvo.com/ws/merchant/<>');
 
   useEffect(() => {
-    socket.onmessage = (event) => {
-      const message = JSON.parse(event.data);
-      if (message.status === 'completed') {
-        setPaymentStatus('completed');
-      }
-    };
+    // socket.onmessage = (event) => {
+    //   const message = JSON.parse(event.data);
+    //   if (message.status === 'completed') {
+    //     setPaymentStatus('completed');
+    //   }
+    // };
 
-    return () => {
-      socket.close();
-    };
+    // return () => {
+    //   socket.close();
+    // };
   }, []);
 
   return (
